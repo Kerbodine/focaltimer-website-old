@@ -7,9 +7,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div className="container mx-auto px-4">
-          <Navbar />
-        </div>
+        <Navbar />
         <Switch>
           <Route path="/product" exact component={Product} />
         </Switch>
