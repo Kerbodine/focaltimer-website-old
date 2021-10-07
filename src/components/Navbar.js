@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { BiMenu } from "react-icons/bi";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import NavbarItem from "./NavbarItem";
 import { ReactComponent as Logo } from "./focaltimer-logo.svg";
 
-export default function Navbar() {
-  const [showNav, setShowNav] = useState(false);
-
+export default function Navbar({ showNav, setShowNav }) {
   const toggleNav = () => {
+    setShowNav(!showNav);
+  };
+
+  const closeNav = () => {
     setShowNav(false);
   };
 
@@ -52,9 +54,7 @@ export default function Navbar() {
           className={`ml-auto w-10 h-10 rounded-md flex items-center justify-center visible md:hidden cursor-pointer ${
             showNav ? "bg-gray-600 text-white" : "hover:bg-gray-100"
           }`}
-          onClick={() => {
-            setShowNav(!showNav);
-          }}
+          onClick={toggleNav}
         >
           <BiMenu className="text-2xl" />
         </div>
@@ -62,28 +62,28 @@ export default function Navbar() {
       <div
         className={`${
           showNav ? "visible md:hidden" : "hidden"
-        } fixed top-20 bottom-0 w-full bg-white flex flex-col items-center justify-center z-30`}
+        } fixed top-20 bottom-0 overflow-hidden w-full bg-white flex flex-col items-center justify-center z-30`}
       >
         <h3 className="text-4xl font-bold ">FocalTimer</h3>
         <p className="text-gray-500">Your all in one productivity suite</p>
         <div className="mt-8 flex flex-col items-center">
           <Link to="/" aria-label="Home">
-            <NavbarItem title="Home" path="/" onClick={toggleNav} />
+            <NavbarItem title="Home" path="/" onClick={closeNav} />
           </Link>
           <Link to="/blog" aria-label="Blog">
-            <NavbarItem title="Blog" path="/blog" onClick={toggleNav} />
+            <NavbarItem title="Blog" path="/blog" onClick={closeNav} />
           </Link>
           <Link to="/projects" aria-label="Projects">
-            <NavbarItem title="Projects" path="/projects" onClick={toggleNav} />
+            <NavbarItem title="Projects" path="/projects" onClick={closeNav} />
           </Link>
           <Link to="/about" aria-label="About me">
-            <NavbarItem title="About me" path="/about" onClick={toggleNav} />
+            <NavbarItem title="About me" path="/about" onClick={closeNav} />
           </Link>
           <Link to="/contact" aria-label="Contact">
-            <NavbarItem title="Contact" path="/contact" onClick={toggleNav} />
+            <NavbarItem title="Contact" path="/contact" onClick={closeNav} />
           </Link>
           <Link to="/product" aria-label="Product">
-            <NavbarItem title="Product" path="/product" onClick={toggleNav} />
+            <NavbarItem title="Product" path="/product" onClick={closeNav} />
           </Link>
           <span className="w-20 h-0.5 bg-gray-100 my-4"></span>
           <a

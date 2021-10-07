@@ -31,7 +31,7 @@ export default function Product() {
             <button className="px-4 py-2 rounded-md bg-gray-600 text-white cursor-pointer hover:bg-black">
               Get started →
             </button>
-            <button className=" px-4 py-2 border-2 border-gray-600 rounded-md hover:bg-black hover:border-none hover:text-white cursor-pointer">
+            <button className=" px-4 py-2 border-2 border-gray-600 rounded-md hover:bg-black hover:border-black hover:text-white cursor-pointer">
               Learn more
             </button>
           </div>
